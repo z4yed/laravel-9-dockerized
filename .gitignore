@@ -1,0 +1,13 @@
+api/.env
+api/bootstrap/compiled.php
+api/vendor
+api/build/logs
+api/build/coverage
+api/app/tests/_log
+apicomposer.phar
+api.DS_Store
+api/.idea
+api/_ide_helper.php
+api/app/config/packages
+api/public/packages
+api/node_modulesapi
