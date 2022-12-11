@@ -27,6 +27,9 @@ services:
     tty: true
     ports:
       - '3000:3000'
+    environment:
+      # track file changes for Windows devices
+      - WATCHPACK_POLLING=true
     volumes:
       - './client:/app/client'
     depends_on:
