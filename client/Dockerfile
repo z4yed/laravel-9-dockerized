@@ -2,12 +2,10 @@ FROM node:16-alpine
 
 WORKDIR /app/client
 
-COPY package.json .
-
-RUN npm install
-
 COPY . .
 
 EXPOSE 3000
 
-CMD npm run dev
+# if node_modules present in host, directly run the server
+# else install packages and run the server
+CMD [ -d "node_modules" ] && npm run dev || npm ci && npm run dev
