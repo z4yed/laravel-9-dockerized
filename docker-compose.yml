@@ -5,10 +5,15 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile
+    environment:
+      - DB_DATABASE=pabnaxpress
+      - DB_USERNAME=butterfly-dev
+      - DB_PASSWORD=blackfire
     ports:
       - "8000:8000"
     volumes:
       - "./api:/app/api"
+      - "/app/api/vendor"
     networks:
       - app
     depends_on:
@@ -36,10 +41,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: shop
-      MYSQL_USER: butterfly
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pabnaxpress
+      MYSQL_USER: butterfly-dev
+      MYSQL_PASSWORD: blackfire
+      MYSQL_ROOT_PASSWORD: blackfire
     volumes:
       - db-data:/var/lib/mysql
     networks:

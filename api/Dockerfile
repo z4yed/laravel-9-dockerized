@@ -9,6 +9,9 @@ COPY . .
 
 RUN chmod 777 -R storage
 
+RUN composer install
+RUN php artisan key:generate
+
 EXPOSE 8000
 
-ENTRYPOINT [ "sh", "/app/api/docker/entrypoint.sh" ]
+CMD php artisan serve --host=0.0.0.0
