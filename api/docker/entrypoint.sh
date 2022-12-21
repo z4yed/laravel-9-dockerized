@@ -2,7 +2,11 @@
 
 cp .env.example .env
 
-composer install
-php artisan key:generate
-
-php artisan serve --host=0.0.0.0
+vendor=/vendor
+if [ -d "$vendor" ]; then
+    php artisan serve --host=0.0.0.0
+else
+    composer install
+    php artisan key:generate
+    php artisan serve --host=0.0.0.0
+fi

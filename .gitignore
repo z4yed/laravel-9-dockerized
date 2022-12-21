@@ -13,3 +13,4 @@ api/public/packages
 api/node_modulesapi
 
 client/node_modules
+.idea
