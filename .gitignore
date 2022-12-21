@@ -11,3 +11,5 @@ api/_ide_helper.php
 api/app/config/packages
 api/public/packages
 api/node_modulesapi
+
+client/node_modules

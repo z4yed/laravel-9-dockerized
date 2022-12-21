@@ -7,9 +7,8 @@ RUN docker-php-ext-install pdo pdo_mysql
 WORKDIR /app/api
 COPY . .
 
-RUN composer install
 RUN chmod 777 -R storage
 
 EXPOSE 8000
 
-CMD php artisan serve --host=0.0.0.0
+ENTRYPOINT [ "sh", "/app/api/docker/entrypoint.sh" ]

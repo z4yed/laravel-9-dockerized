@@ -1,20 +1,15 @@
-version: '3.7'
+version: "3.7"
 
 services:
   backend:
     build:
       context: ./api
       dockerfile: Dockerfile
-    environment:
-      DB_HOST: db
-      DB_DATABASE: shop
-      DB_USERNAME: butterfly
-      DB_PASSWORD: root
     ports:
       - "8000:8000"
     volumes:
-      - './api:/app/api'
-      - '/app/api/vendor'
+      - "./api:/app/api"
+      - "/app/api/vendor"
     networks:
       - app
     depends_on:
@@ -26,12 +21,12 @@ services:
       dockerfile: Dockerfile
     tty: true
     ports:
-      - '3000:3000'
+      - "3000:3000"
     environment:
       # track file changes for Windows devices
       - WATCHPACK_POLLING=true
     volumes:
-      - './client:/app/client'
+      - "./client:/app/client"
     depends_on:
       - backend
     networks:
